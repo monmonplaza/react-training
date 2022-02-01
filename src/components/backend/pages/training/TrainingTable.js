@@ -5,7 +5,7 @@ import Nodata from "../../../widgets/Nodata";
 import SpinnerTable from "../../../widgets/SpinnerTable";
 import { StoreContext } from "../../../../store/StoreContext";
 import { setIsAdd, setIsConfirm } from "../../../../store/StoreAction";
-import ModalAddProject from "./modal/ModalAddProject";
+
 import Search from "../../../widgets/Search.js";
 import ModalConfirm from "../../../modal/ModalConfirm.js";
 import LoadMore from "../../../widgets/LoadMore.js";
@@ -13,8 +13,14 @@ import BackFooter from "../../BackFooter.js";
 
 import useLoadAll from "../../../custom-hooks/useLoadAll";
 import ModalError from "../../../modal/ModalError";
+import ModalAddTraining from "./modal/ModalAddTraining.js";
+import { data } from "./TrainingData.js";
 
 const TrainingTable = () => {
+  const [isShow, setIsShow] = React.useState(false);
+  const handleAdd = () => setIsShow(true);
+  let count = 0;
+
   return (
     <>
       <section className="datalist">
@@ -38,8 +44,8 @@ const TrainingTable = () => {
                 </thead>
 
                 <tbody>
-                  {result.length > 0 ? (
-                    result.map((item, key) => {
+                  {data.length > 0 ? (
+                    data.map((item, key) => {
                       count += 1;
                       return (
                         <tr key={key}>
@@ -80,7 +86,7 @@ const TrainingTable = () => {
                     <tr>
                       <td colSpan="5" className="row__nodata">
                         <Nodata />
-                        {loading && <SpinnerTable />}
+                        {/* {loading && <SpinnerTable />} */}
                       </td>
                     </tr>
                   )}
@@ -93,6 +99,7 @@ const TrainingTable = () => {
 
         <BackFooter />
       </section>
+      {isShow && <ModalAddTraining />}
     </>
   );
 };
