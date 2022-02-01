@@ -63,6 +63,16 @@ const SideNav = ({ isTab }) => {
                   <span>Donation</span>
                 </NavLink>
               </li>
+
+              <li>
+                <NavLink
+                  to={`${devNavUrl}/training`}
+                  className={(navData) => (navData.isActive ? "active" : "")}
+                >
+                  <BiUser />
+                  <span>Training</span>
+                </NavLink>
+              </li>
             </ul>
           </main>
         </div>

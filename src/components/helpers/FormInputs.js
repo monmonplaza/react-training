@@ -29,35 +29,8 @@ export const InputFileUpload = ({ label, ...props }) => {
   );
 };
 
-export const InputSelect = ({ label, handleChangeSecSub, ...props }) => {
+export const InputSelect = ({ label, ...props }) => {
   const [field, meta] = useField(props);
-
-  if (
-    props.name === "classes_class_level_id" ||
-    props.name === "students_grade_level" ||
-    props.name === "subjects_class_level_id"
-  ) {
-    return (
-      <>
-        <label className="label" htmlFor={props.id || props.name}>
-          {label}
-        </label>
-        <select
-          {...field}
-          {...props}
-          className={meta.touched && meta.error ? "error-show" : null}
-          onChange={(e) => {
-            handleChangeSecSub(e);
-            field.onChange(e);
-          }}
-        />
-
-        {meta.touched && meta.error ? (
-          <span className="error-msg error-show">{meta.error}</span>
-        ) : null}
-      </>
-    );
-  }
 
   return (
     <>

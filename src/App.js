@@ -21,6 +21,7 @@ import SponsorshipListArchive from "./components/backend/pages/donor/sponsorship
 import Thankyou from "./components/frontend/pages/Thankyou.js";
 import ManualDonation from "./components/backend/pages/donation/manual/ManualDonation.js";
 import CreditCard from "./components/backend/pages/donation/credit-card/CreditCard.js";
+import TrainingList from "./components/backend/pages/training/TrainingList.js";
 function App() {
   return (
     <div className="App">
@@ -89,6 +90,8 @@ function App() {
               path={`${devNavUrl}/forgot-password-success`}
               element={<ForgotPasswordSuccess />}
             />
+
+            <Route path={`${devNavUrl}/training`} element={<TrainingList />} />
           </Routes>
         </Router>
       </StoreProvider>
