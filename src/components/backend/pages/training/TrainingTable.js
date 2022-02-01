@@ -19,6 +19,16 @@ import { data } from "./TrainingData.js";
 const TrainingTable = () => {
   const [isShow, setIsShow] = React.useState(false);
   const handleAdd = () => setIsShow(true);
+
+  const [isEdit, setIsEdit] = React.useState(false);
+
+  const [editItem, setEditItem] = React.useState(false);
+
+  const handleEdit = (item) => {
+    setIsEdit(true);
+    setEditItem(item);
+  };
+
   let count = 0;
 
   return (
@@ -60,7 +70,7 @@ const TrainingTable = () => {
                               </button>
                               <ul>
                                 <li>
-                                  <button>
+                                  <button onClick={() => handleEdit(item)}>
                                     <RiEdit2Line /> Edit
                                   </button>
                                 </li>
@@ -99,7 +109,7 @@ const TrainingTable = () => {
 
         <BackFooter />
       </section>
-      {isShow && <ModalAddTraining />}
+      {isShow && <ModalAddTraining setIsEdit={setIsEdit} />}
     </>
   );
 };

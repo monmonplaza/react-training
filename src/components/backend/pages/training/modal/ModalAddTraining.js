@@ -22,33 +22,21 @@ import SpinnerBtn from "../../../../widgets/SpinnerBtn";
 import { fetchData } from "../../../../helpers/fetchData";
 import { checkProducts } from "../../../../helpers/stripe-products";
 
-const ModalAddTraining = ({ item }) => {
-  const { store, dispatch } = React.useContext(StoreContext);
-  const [loading, setLoading] = React.useState(false);
-  const { itemEdit, setItemEdit } = item;
-
+const ModalAddTraining = ({ itemEdit, setIsShow }) => {
   const handleClose = () => {
-    dispatch(setIsAdd(false));
+    setIsShow(false);
   };
 
-  const { uploadPhoto, handleChangePhoto, photo } = useUploadPhoto(
-    "/admin/children/upload-photo.php",
-    dispatch
-  );
+  console.log(itemEdit);
 
   const initVal = {
-    product: itemEdit ? itemEdit.project_id : "",
-    product_name: itemEdit ? itemEdit.project_name : "",
-    product_description: itemEdit ? itemEdit.project_description : "",
-    product_amount: itemEdit ? itemEdit.project_amount : "",
-    // project_photo: itemEdit ? itemEdit.project_photo : "np.jpg",
+    training_name: itemEdit ? itemEdit.training_name : "",
+    training_amount: itemEdit ? itemEdit.training_amount : "",
   };
 
   const yupSchema = Yup.object({
-    product_name: Yup.string().required("Required"),
-    product_description: Yup.string().required("Required"),
-    product_amount: Yup.string().required("Required"),
-    // project_photo: Yup.string().required("Required"),
+    training_name: Yup.string().required("Required"),
+    training_amount: Yup.string().required("Required"),
   });
 
   return (
@@ -56,7 +44,7 @@ const ModalAddTraining = ({ item }) => {
       <div className="dashmodal">
         <div className="dashmodal__main">
           <div className="dashmodal__header bg--primary">
-            <h2>{itemEdit ? "Update Project" : "Add Project"}</h2>
+            <h2>sdfsdfsdfsdfsdfsd</h2>
             <button className="modaldashClose" onClick={handleClose}>
               <BsPlus />
             </button>
@@ -69,41 +57,6 @@ const ModalAddTraining = ({ item }) => {
               // value = initVal = state
               onSubmit={async (values, { setSubmitting, resetForm }) => {
                 console.log(values);
-                setLoading(true);
-                uploadPhoto();
-                // stripe api
-                const data = await checkProducts(
-                  itemEdit,
-                  values,
-                  dispatch,
-                  setLoading
-                );
-
-                if (data.type === "good") {
-                  // insert to mysql
-                  fetchData(
-                    setLoading,
-                    itemEdit
-                      ? "/admin/projects/update-projects.php"
-                      : "/admin/projects/create-projects.php",
-                    {
-                      ...values,
-                      product_id: data.id,
-                      product_photo: photo
-                        ? photo.name
-                        : itemEdit
-                        ? itemEdit.project_photo
-                        : "np.jpg",
-                    }, // form data values
-                    null, // result set data
-                    "", // success msg
-                    "", // additional error msg if needed
-                    dispatch, // context api action
-                    store, // context api state
-                    false, // boolean to show success modal
-                    false // boolean to show load more functionality button
-                  );
-                }
               }}
             >
               {(props) => {
@@ -111,56 +64,19 @@ const ModalAddTraining = ({ item }) => {
 
                 return (
                   <Form action="" className="dashmodal__form">
-                    <div className="form__group input--upload">
-                      <label htmlFor="upload-photo">
-                        <RiCamera3Line />
-                      </label>
-
-                      <img
-                        src={
-                          photo
-                            ? URL.createObjectURL(photo)
-                            : itemEdit !== null
-                            ? devBaseUrl + "/images/" + itemEdit.project_photo
-                            : "../../images/child_placeholder.jpg"
-                        }
-                        alt="default avatar"
-                      />
-
-                      <InputFileUpload
-                        type="file"
-                        name="photo"
-                        accept="image/*"
-                        onChange={handleChangePhoto}
-                        id="upload-photo"
-                      />
-                      <small>Max file size 60kb</small>
-                    </div>
-
                     <div className="form__group">
                       <InputText
                         label="Name"
                         type="text"
-                        name="product_name"
-                        disabled={loading}
+                        name="training_name"
                       />
-                    </div>
-                    <div className="form__group">
-                      <MyTextArea
-                        label="Description"
-                        name="product_description"
-                        cols="30"
-                        rows="10"
-                        disabled={loading}
-                      ></MyTextArea>
                     </div>
 
                     <div className="form__group">
                       <InputText
                         label="Amount Limit"
                         type="text"
-                        name="product_amount"
-                        disabled={loading}
+                        name="training_amount"
                       />
                     </div>
                     <div className="dashmodal__footer">
@@ -169,10 +85,8 @@ const ModalAddTraining = ({ item }) => {
                           <button
                             type="submit"
                             className="dashmodal__btn btn--primary"
-                            disabled={loading}
                           >
-                            {itemEdit ? "Save" : "Add"}{" "}
-                            {loading && <SpinnerBtn />}
+                            {itemEdit ? "Save" : "Add"} <SpinnerBtn />
                           </button>
                         </li>
                         <li>
