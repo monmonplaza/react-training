@@ -1,8 +1,8 @@
 //LOCAL NI MON
-//export const devApiUrl = "http://localhost/react-fca-donation2021/rest";
+export const devApiUrl = "http://localhost/react-fca-donation2021/rest";
 
 // development url
-export const devApiUrl = "https://fca.edu.ph/dev-app/rest";
+//export const devApiUrl = "https://fca.edu.ph/dev-app/rest";
 export const devBaseUrl = "https://fca.edu.ph/dev-app";
 export const devNavUrl = "/dev-app";
 
