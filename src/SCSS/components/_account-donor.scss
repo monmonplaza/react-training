@@ -1,0 +1,110 @@
+.donor {
+  padding: 2rem;
+}
+
+.donor__block {
+  max-width: 46rem;
+  margin-bottom: 5rem;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid $color-light-d;
+    h3 {
+      font-weight: bold;
+    }
+
+    button {
+      border: none;
+      background-color: transparent;
+      color: $color-primary;
+      &:hover {
+        color: $color-primary-d;
+      }
+    }
+  }
+
+  &__body {
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 2rem;
+      margin-bottom: 1rem;
+    }
+    .info__group {
+      h4 {
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      p {
+        font-size: 1.6rem;
+      }
+    }
+
+    .card {
+      padding: 2rem;
+      border: 2px solid linear-gradient(45deg, $color-primary, $color-primary-d);
+      border-radius: 1rem;
+      // background-image: linear-gradient($color-primary, $color-primary-d);
+      background-image: linear-gradient(30deg, #219126, #038d80);
+      color: $color-light;
+
+      &__group {
+        margin-bottom: 1rem;
+        h5 {
+          opacity: 0.4;
+          font-size: 1.4rem;
+        }
+        p {
+          color: $color-light;
+        }
+      }
+      &__icon {
+        svg {
+          font-size: 6rem;
+        }
+      }
+
+      &__group.card--number {
+        p {
+          font-size: 5rem;
+          margin-bottom: 0;
+          line-height: 1;
+        }
+      }
+
+      &__group.card--name {
+        p {
+          font-size: 2rem;
+        }
+      }
+    }
+
+    .card__meta {
+      justify-content: space-between;
+      .d--flex {
+        gap: 4rem;
+      }
+      ul {
+        display: flex;
+        align-items: center;
+
+        li {
+          margin-left: 1rem;
+          font-size: 4rem;
+          height: 3rem;
+          align-self: flex-start;
+          svg {
+            line-height: 1;
+          }
+        }
+
+        li:nth-child(3) {
+          clip-path: polygon(0 23%, 100% 23%, 100% 130%, 0 130%);
+        }
+      }
+    }
+  }
+}

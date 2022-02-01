@@ -1,0 +1,10 @@
+.dashfooter {
+  margin-top: auto;
+  &__wrapper {
+    text-align: center;
+    margin-top: 2rem;
+    p {
+      font-size: 1rem;
+    }
+  }
+}

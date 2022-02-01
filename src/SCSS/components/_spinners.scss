@@ -1,0 +1,96 @@
+.loadmore {
+  text-align: center;
+  margin: 2rem 0;
+  &__text {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.2rem;
+    animation: fadeinout 2s linear infinite;
+  }
+  svg {
+    fill: $color-primary;
+    animation: spin360 4s linear infinite;
+  }
+
+  .loadmore__btn {
+    padding: 0.8rem 1.4rem;
+    border: none;
+    background-color: $color-primary;
+    border-radius: 0.5rem;
+    color: $color-light;
+    margin: 0 auto;
+    cursor: pointer;
+    &:hover {
+      background-color: $color-primary-d;
+    }
+  }
+  .loadmore__btn.show {
+    display: block;
+  }
+}
+
+.spinner {
+  &__table {
+    min-height: 33vh;
+    display: grid;
+    place-content: center;
+    position: absolute;
+    background-color: rgba($color-light, 0.5);
+    width: 100%;
+    top: 0;
+    left: 0;
+    svg {
+      font-size: 4rem;
+      fill: $color-primary;
+      justify-self: center;
+
+      animation: spin360 4s linear infinite;
+    }
+  }
+
+  &__cards {
+    position: absolute;
+    height: 100%;
+    display: grid;
+    width: 100%;
+    place-content: center;
+    background-color: rgba($color-light, 0.5);
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    svg {
+      font-size: 4rem;
+      fill: $color-primary;
+      justify-self: center;
+
+      animation: spin360 4s linear infinite;
+    }
+  }
+
+  &__btn {
+    line-height: 1;
+    padding-left: 1rem;
+    svg {
+      font-size: 1.4rem;
+      fill: $color-light !important;
+      animation: spin360 4s linear infinite;
+    }
+  }
+
+  &__window {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: grid;
+    place-content: center;
+    z-index: 999999;
+    background-color: rgba(255, 255, 255, 0.8);
+    svg {
+      font-size: 7rem;
+      fill: $color-primary;
+      animation: spin360 4s linear infinite;
+    }
+  }
+}

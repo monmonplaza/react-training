@@ -1,0 +1,385 @@
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  &__main {
+    max-width: 40rem;
+    width: 96%;
+    background-color: $color-light;
+    margin: 0 1.5rem;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+
+  &__header {
+    position: relative;
+    padding: 2rem;
+    padding-bottom: 0;
+    .btn__close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background-color: transparent;
+      border: none;
+      transform: rotate(45deg);
+      font-size: 1.8rem;
+      cursor: pointer;
+      &:hover {
+        color: $color-primary;
+      }
+    }
+
+    .btn__modal__login {
+      padding: 0.5rem 1.5rem;
+      background-color: $color-primary;
+      border: none;
+      border-radius: 2rem;
+      color: $color-light;
+    }
+
+    &__content {
+      margin-top: 2rem;
+      h2 {
+        font-weight: bold;
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  &__body.modal--login {
+    height: 29vh;
+    overflow: hidden;
+  }
+  &__body {
+    padding: 2rem;
+    height: 75vh;
+    overflow: auto;
+    @include scrollbar;
+    .form__group.form--amount {
+      span {
+        position: absolute;
+        left: 1rem;
+        top: 3.4rem;
+        font-weight: bold;
+        color: $color-primary;
+      }
+    }
+
+    .donation__radio.donation__amt ul {
+      grid-template-columns: 1fr 1fr 1fr;
+      font-size: 2rem;
+    }
+
+    .donation__radio ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      font-weight: bold;
+      font-size: 1.4rem;
+
+      li {
+        display: flex;
+        align-items: center;
+        span {
+          padding-left: 1rem;
+          line-height: 0;
+          padding-top: 1px;
+        }
+      }
+    }
+  }
+  .modal__block.personal--info {
+    .form__group:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .donation__radio.donation--method {
+    margin-bottom: 2rem;
+  }
+
+  &__block {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $color-light-d;
+    &__header {
+      margin-bottom: 2rem;
+      h3 {
+        font-weight: bold;
+      }
+      p {
+        font-size: 1.2rem;
+      }
+    }
+
+    .info__user {
+      justify-content: space-between;
+      column-gap: 2rem;
+    }
+
+    .info__card {
+      grid-template-columns: 2fr 1.2fr;
+      grid-column-gap: 2rem;
+    }
+
+    .card__note {
+      display: flex;
+      align-items: center;
+      line-height: 1;
+      font-size: 1.2rem;
+      margin-bottom: 0;
+      svg {
+        fill: $color-primary;
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+
+    button {
+      margin: 0;
+    }
+  }
+}
+.offline__instruction.show {
+  display: block;
+}
+.offline__instruction {
+  display: none;
+  font-size: 1.4rem;
+  p {
+    margin-bottom: 2rem;
+  }
+
+  ol {
+    list-style: roman;
+    li {
+      margin-left: 2rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .fca__address {
+    font-style: italic;
+    margin-top: 1rem;
+  }
+}
+// DASHBOARD MODAL
+
+.dashmodal {
+  @extend .modal;
+  &__main {
+    background-color: $color-light;
+    max-width: 45rem;
+    width: 100%;
+  }
+
+  &__header {
+    padding: 1.5rem;
+    background-color: $color-primary;
+    color: $color-light;
+    position: relative;
+    h2 {
+      font-weight: bold;
+    }
+
+    .modaldashClose {
+      top: 0.8rem;
+      right: 0.8rem;
+      position: absolute;
+      transform: rotate(45deg);
+      font-size: 3.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+      svg {
+        fill: $color-light !important;
+      }
+    }
+  }
+
+  &__body__icon {
+    display: block;
+    margin-bottom: 1rem;
+    svg {
+      font-size: 3rem;
+      fill: $color-primary;
+    }
+  }
+
+  &__body.fixed--height {
+    min-height: 10vh;
+  }
+
+  &__body {
+    padding: 1.5rem;
+
+    min-height: 25vh;
+    overflow-y: auto;
+    @include scrollbar;
+    margin: 0.5rem;
+
+    .form__group {
+      input,
+      textarea,
+      select {
+        border: 1px solid $color-border;
+        border-radius: 0.5rem;
+        &:focus {
+          border: 1px solid $color-primary;
+        }
+      }
+
+      input:focus,
+      textarea:focus,
+      select:focus {
+        outline-color: $color-primary;
+      }
+    }
+
+    input:disabled,
+    textarea:disabled,
+    select:disabled {
+      background: $color-light-d;
+      cursor: not-allowed;
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+
+  .form__group.input--upload {
+    position: relative;
+    text-align: center;
+    small {
+      display: block;
+      font-size: 1.2rem;
+    }
+    input {
+      visibility: hidden;
+      display: none;
+    }
+    label {
+      cursor: pointer;
+      position: absolute;
+      padding: 0.7rem;
+      display: flex;
+      color: $color-light;
+      border-radius: 50%;
+      background-color: $color-primary;
+      top: 50%;
+      left: 55%;
+      svg {
+        font-size: 2.3rem;
+      }
+    }
+    img {
+      width: 10rem;
+      height: 10rem;
+      display: block;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto;
+      border: 1px solid $color-primary;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__footer {
+    border-top: 1px solid $color-gray;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1.5rem 0;
+    ul {
+      display: flex;
+      li {
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  &__btn {
+    padding: 1.3rem 1.4rem;
+    min-width: 10rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s ease;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.4rem;
+  }
+
+  &.modal--yesno {
+    .dashmodal__body__icon svg {
+      fill: $color-error;
+    }
+  }
+  &.modal--okonly {
+    .dashmodal__body__icon svg {
+      fill: $color-primary;
+    }
+  }
+}
+
+.child__description {
+  img {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    border: 2px solid $color-primary;
+    display: block;
+    margin: 0rem auto 2rem;
+  }
+  padding: 1rem 3rem;
+  h3 {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+
+  p {
+    text-align: justify;
+  }
+}
+
+.modal__login__select {
+  padding: 3rem 0;
+  border-top: 1px solid $color-border;
+  border-bottom: 1px solid $color-border;
+  margin-bottom: 3rem;
+  li {
+    margin-bottom: 1rem;
+    a {
+      padding: 0.8rem 1.4rem;
+      background-color: $color-primary;
+      display: block;
+      color: $color-light;
+      text-align: center;
+      border-radius: 0.5rem;
+      border: 1px solid $color-primary;
+    }
+  }
+
+  li:last-child a {
+    border: 1px solid $color-primary;
+    background-color: $color-light;
+    color: $color-primary;
+  }
+}

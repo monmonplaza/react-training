@@ -1,0 +1,233 @@
+.header {
+  &__top {
+    background-color: $color-dark;
+    color: $color-light;
+    @include mediaQuery {
+      display: none;
+    }
+    ul {
+      align-items: center;
+      li {
+        margin-right: 1rem;
+        font-size: 1.1rem;
+        font-family: sans-serif;
+        a {
+          color: $color-light;
+        }
+
+        svg {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+    &__wrapper {
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+  }
+  &__action {
+    li {
+      margin-left: 0.2rem;
+      a {
+        padding: 0.5rem 1.4rem;
+        border-radius: 0.3rem;
+      }
+    }
+
+    li:first-child a {
+      background: #4267b2;
+      color: $color-light;
+    }
+
+    li:last-child a {
+      background: #f2f2f2;
+      color: $color-dark;
+    }
+  }
+
+  &__main {
+    padding: 0.5rem 0;
+    &__wrapper {
+      justify-content: space-between;
+    }
+    .branding {
+      img {
+        @include mediaQuery {
+          width: 20rem;
+          padding: 1rem 0;
+        }
+      }
+    }
+    nav.open {
+      left: 0%;
+      li {
+        margin-left: 0;
+      }
+    }
+    nav {
+      @include mediaQuery {
+        background-color: $color-light;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        left: -100%;
+        top: 7.5rem;
+        z-index: 9999;
+        padding: 1rem;
+        @include transition;
+      }
+      ul {
+        height: 100%;
+        align-items: center;
+        @include mediaQuery {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        li {
+          position: relative;
+          margin-left: 1rem;
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -1rem;
+            height: 3px;
+            width: 100%;
+            transform: scale(0);
+            background-color: $color-primary;
+            @include transition;
+          }
+        }
+
+        li:hover::after {
+          transform: scale(1);
+        }
+        li.has__child:hover ul.submenu {
+          display: block;
+          @include mediaQuery {
+            position: static;
+            li {
+              margin-left: 0;
+            }
+          }
+        }
+        li.has__child {
+          ul.submenu {
+            position: absolute;
+            top: 200%;
+            left: -30%;
+            background: #fff;
+            min-height: 8rem;
+            text-align: center;
+            padding: 0 1rem;
+            z-index: 999999;
+            display: none;
+            li {
+              margin-bottom: 2rem;
+              &::after {
+                display: block;
+                @include mediaQuery {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+        li:last-child {
+          border: none;
+          &::after {
+            display: none;
+          }
+        }
+        li:first-child {
+          @include mediaQuery {
+            border-top: 1px solid $color-gray;
+          }
+        }
+        li {
+          @include mediaQuery {
+            border-bottom: 1px solid $color-gray;
+            width: 100%;
+            text-align: center;
+            &::after {
+              display: none;
+            }
+          }
+          a {
+            text-transform: uppercase;
+            font-size: 1.4rem;
+            padding: 2rem;
+            letter-spacing: 1px;
+            color: $color-primary;
+            cursor: pointer;
+            @include mediaQuery {
+              display: block;
+              padding: 2rem;
+              &:hover {
+                color: $color-light;
+                background-color: $color-primary;
+              }
+            }
+          }
+          a.btn--donate {
+            padding: 1rem 1.6rem;
+            border: 2px solid $color-primary;
+            border-radius: 1.2rem;
+            font-weight: 500;
+            color: $color-primary;
+            @include transition;
+            @include mediaQuery {
+              display: block;
+              margin-top: 2rem;
+            }
+            &:hover {
+              background-color: $color-primary;
+              color: $color-light;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.toggle__btn {
+  display: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  @include transition;
+  &:hover span {
+    background-color: darken(#b1b1b1, 20);
+  }
+  @include mediaQuery() {
+    display: block;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    span {
+      width: 3rem;
+      background-color: #b1b1b1;
+      height: 0.5rem;
+      display: block;
+      border-radius: 1rem;
+      margin-bottom: 0.5rem;
+      transition: 0.5s ease;
+    }
+  }
+}
+
+.toggle__btn.active {
+  span:nth-child(1) {
+    transform: translate(1px, 8px) rotate(45deg);
+  }
+
+  span:nth-child(2) {
+    opacity: 0;
+  }
+
+  span:nth-child(3) {
+    transform: translate(1px, -12px) rotate(-45deg);
+  }
+}

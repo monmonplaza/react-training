@@ -1,0 +1,38 @@
+.thankyou {
+  padding: 5rem 0 10rem;
+  &__wrapper {
+    max-width: 65rem;
+    margin: 0 auto;
+  }
+  &__img {
+    margin-bottom: 3rem;
+    img {
+      @include mediaQuery {
+        width: 30rem;
+        height: auto;
+      }
+    }
+  }
+  &__content {
+    ol {
+      li {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+  &__actions {
+    margin-top: 5rem;
+    display: flex;
+    gap: 1rem;
+    @include mediaQuery {
+      flex-direction: column;
+    }
+
+    a {
+      @include mediaQuery {
+        display: block;
+        text-align: center;
+      }
+    }
+  }
+}

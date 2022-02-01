@@ -1,0 +1,123 @@
+.dashheader {
+  padding: 1rem;
+  display: flex;
+  background-color: rgb(226, 226, 226);
+  color: $color-primary-d;
+  align-self: flex-start;
+  &__content {
+    display: flex;
+    gap: 2rem;
+  }
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      padding-left: 1rem;
+    }
+    h3 {
+      font-size: 1.6rem;
+
+      font-weight: bold;
+    }
+    small {
+      font-size: 1rem;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+  }
+  div {
+    align-self: center;
+    line-height: 1;
+  }
+
+  &__avatar {
+    display: flex;
+    padding: 0.5rem;
+    border: 1px solid rgba($color-primary-d, 0.5);
+    border-radius: 5px;
+
+    @include transition;
+    &:hover {
+      background-color: $color-primary;
+      color: $color-light;
+    }
+
+    &:hover svg {
+      fill: $color-light;
+    }
+
+    button {
+      margin-left: 1rem;
+      width: 4rem;
+      height: 4rem;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      svg {
+        fill: $color-primary-d;
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+.test__mode {
+  display: flex;
+  align-items: center;
+  p {
+    margin-bottom: 0;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 3rem;
+    height: 1.9rem;
+    input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $color-light-d;
+    transition: 0.4s;
+    border-radius: 3rem;
+    border: 1px solid $color-border;
+    &::before {
+      position: absolute;
+      content: "";
+      height: 1rem;
+      width: 1rem;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+  }
+
+  input:checked + .slider {
+    background-color: $color-primary-d;
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(12px);
+  }
+}

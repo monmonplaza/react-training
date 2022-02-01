@@ -1,0 +1,45 @@
+.footer {
+  background-color: $color-dark;
+  color: $color-light;
+  padding: 3rem 0;
+  a {
+    color: $color-light;
+    font-size: 1.1rem;
+    svg {
+      margin-right: 0.6rem;
+    }
+  }
+
+  p {
+    font-size: 1.1rem;
+  }
+
+  li {
+    @extend a;
+    margin-bottom: 1rem;
+  }
+  &__wrapper {
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+    @include mediaQuery($break-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item:last-child {
+    border: none;
+  }
+
+  &__item {
+    border-right: 1px solid #5e5e5e;
+    @include mediaQuery($break-md) {
+      border-right: none;
+    }
+    h3 {
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+    }
+  }
+}

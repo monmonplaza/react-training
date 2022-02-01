@@ -1,0 +1,32 @@
+@import "./scss/01-variable";
+@import "./scss/02-mixins";
+@import "./scss/03-reset";
+@import "./scss/04-base";
+@import "./scss/05-utilities";
+@import "./scss/06-animation";
+
+@import "./scss/components/card";
+@import "./scss/components/btn";
+@import "./scss/components/form";
+@import "./scss/components/modal";
+@import "./scss/components/spinners";
+@import "./scss/components/table";
+@import "./scss/components/nodata";
+@import "./scss/components/search";
+@import "./scss/components/account-donor";
+
+//SPECIFIC COMPONENT
+@import "./scss/components/front-header";
+@import "./scss/components/back-header";
+@import "./scss/components/back-footer";
+@import "./scss/components/front-footer";
+@import "./scss/components/page-banner";
+@import "./scss/components/sideNav";
+@import "./scss/components/datalist";
+
+//PAGES
+@import "./scss/pages/donate";
+@import "./scss/pages/dashboard";
+@import "./scss/pages/login";
+@import "./scss/pages/cardlist";
+@import "./scss/pages/thankyou";

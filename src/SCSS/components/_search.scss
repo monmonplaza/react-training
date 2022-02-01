@@ -1,0 +1,37 @@
+.search {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    p {
+      align-self: center;
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+  &--form {
+    display: flex;
+    margin-right: 3rem;
+    width: 20vw;
+    input {
+      border: 1px solid $color-border;
+      border-radius: 0.5rem;
+      outline: none;
+      &:focus {
+        border: 1px solid $color-primary;
+      }
+    }
+
+    button {
+      margin-left: 1rem;
+      border: none;
+      background-color: $color-primary;
+      color: $color-light;
+      padding: 1rem 1.6rem;
+      border-radius: 0.5rem;
+      svg {
+        font-weight: bold;
+      }
+    }
+  }
+}

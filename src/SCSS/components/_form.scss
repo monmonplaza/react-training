@@ -1,0 +1,109 @@
+.form__group {
+  margin-bottom: 2rem;
+  position: relative;
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 1rem;
+    &::placeholder {
+      font-family: "Raleway", sans-serif;
+    }
+  }
+
+  textarea {
+    height: 8rem;
+  }
+
+  .error--msg {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    color: $color-error;
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-style: italic;
+  }
+
+  input[type="radio"] {
+    display: inline-block;
+  }
+}
+
+.donation__amount__wrap {
+  .form__group {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    label {
+      display: block;
+      margin-bottom: 1rem;
+      font-weight: bold;
+      position: relative;
+      span {
+        position: absolute;
+        top: 4rem;
+        left: calc(50% - 9rem);
+        font-size: 3rem;
+      }
+    }
+    input.donation__amount {
+      display: block;
+      max-width: 20rem;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1rem 1rem 1rem 3rem;
+      z-index: 0;
+      border: none;
+      border-bottom: 2px solid $color-primary;
+      text-align: left;
+      outline: none;
+      background-color: lighten($color-primary, 75);
+      font-size: 4rem;
+    }
+
+    small.error--msg {
+      display: block;
+      color: $color-error;
+      font-size: 1rem;
+      margin-top: 1rem;
+      font-weight: bold;
+      font-style: italic;
+    }
+  }
+}
+
+.radiobox {
+  position: relative;
+  h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+  &__wrap {
+    justify-content: flex-start;
+
+    .form__group {
+      margin-right: 2rem;
+    }
+    input {
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+  }
+
+  .error--msg {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    color: $color-error;
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-style: italic;
+  }
+}
